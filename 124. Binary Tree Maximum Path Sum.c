@@ -57,8 +57,6 @@ public:
     }
     struct TreeNodeData solve(TreeNode* root) {
 		struct TreeNodeData ret  ={ .maxheight = 0, .maxlength = 0};
-		struct TreeNodeData dataL ;
-		struct TreeNodeData dataR ;
 		
         int val = root->val;
 		if (root->left==NULL&&root->right == NULL)
@@ -68,6 +66,8 @@ public:
 		}
         else
         {
+            struct TreeNodeData dataL ;
+            struct TreeNodeData dataR ;
             bool leftavailable;
             bool rightavailable;
             if (root->left != NULL)
