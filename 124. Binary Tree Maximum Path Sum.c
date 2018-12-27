@@ -10,10 +10,8 @@
 /*
 Root
 Lefttree       righttree
-
 Path length : the sum of values of a path
 Height: the largest path length from root to leave
-
 Max path length of root=
 {
 	Max length of lefttree//if the path does not pass root
@@ -23,7 +21,6 @@ Max path length of root=
 	Height of righttree+Value of root
 	Height of lefttree+Value of root+Height of righttree
 }
-
 */
  struct TreeNodeData {
       int maxheight;
@@ -67,7 +64,8 @@ public:
         else
         {
             struct TreeNodeData dataL ;
-            struct TreeNodeData dataR ;
+		struct TreeNodeData dataR ;
+		
             bool leftavailable;
             bool rightavailable;
             if (root->left != NULL)
@@ -95,7 +93,7 @@ public:
                 ,rightavailable
                 ,leftavailable
                 ,rightavailable
-                ,leftavailable&&rightavailable};
+                ,leftavailable&rightavailable};
             int arr[6] = {
                 val
                 ,dataL.maxheight + val
@@ -107,7 +105,7 @@ public:
             int maxheight =maximum(arr, isavailable,3);
             ret.maxheight=maxheight;
             
-            int maxlength=(leftavailable||rightavailable)?max(maxheight,maximum(arr+3,isavailable+3,3)):maxheight;
+            int maxlength=(leftavailable|rightavailable)?max(maxheight,maximum(arr+3,isavailable+3,3)):maxheight;
             ret.maxlength=maxlength;
         }
         /*
