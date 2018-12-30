@@ -22,7 +22,8 @@ STEP3. sum of widths=allsubseq.sum(max)-allsubseq.sum(min)
 #define ISEND 1
 #define MODNUM 1000000007
 #define EXPLIMIT 20000
-#define MULLIMIT 2147483647 
+//MULLIMIT=MODNUM*2
+#define MULLIMIT 2000000014  
 #define ADDLIMIT 4611686018427387903 
 class Solution {
 public:
@@ -92,7 +93,8 @@ public:
     16384};
     long int modmul(long int a, long int b)
     {
-        return (a*b)%MODNUM;
+        
+        return (a*b)%MODNUM;    
     }
     long int modpower(int base, int exp)
     {
