@@ -31,15 +31,27 @@ public:
         int index=0;
         long int sum=0;
         int size=A.size();
-        for(index=0;index<size;A++)
+        for(index=0;index<size;index++)
         {
-            sum+=modmul((modpower(2, size-index-1)-modpower(2, index)),A[index]);
+            int countpos=modpower(2, index);
+            int countneg=modpower(2, size-index-1);
+            //NOTE:countpos*countneg=modpower(2, size)
+            //you need MODULO DIV
+            int count=countpos-countneg;
+            sum+=modmul(count,A[index]);
             sum=sum%MODNUM;
+            //debug message
+          //  cout<<"index:"<<index<<endl;
+           // cout<<"val:"<<A[index]<<endl;
+            //cout<<"pos:"<<countpos<<endl;
+            //cout<<"neg:"<<countneg<<endl;
+          //  cout<<"count:"<<count<<endl;
+           // cout<<"sumA:"<<sum<<endl;
+           // cout<<"sum:"<<sum<<endl;
         }
         return sum;
         //NOTE: use long int 
     }
-private:
     //int precalculatedpower[15]={2^(2^0),2^(2^1),2^(2^2),....};
     long int powtable[15]={2,
                 4,
@@ -70,7 +82,7 @@ private:
                 2048,
                 4096,
                 8192,
-                16384
+    16384};
     long int modmul(long int a, long int b)
     {
         return (a*b)%MODNUM;
@@ -89,7 +101,7 @@ private:
         long int result=1;
         for(i=14;i>=0;i--)
         {
-            if(exp>exptable[i])
+            if(exp>=exptable[i])
             {
                 exp-=exptable[i];
                 result=modmul(result,powtable[i]);
