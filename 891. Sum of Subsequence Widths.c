@@ -35,8 +35,6 @@ public:
         {
             int countpos=modpower(2, index);
             int countneg=modpower(2, size-index-1);
-            //NOTE:countpos*countneg=modpower(2, size)
-            //you need MODULO DIV
             int count=countpos-countneg;
             sum+=modmul(count,A[index]);
             sum=sum%MODNUM;
