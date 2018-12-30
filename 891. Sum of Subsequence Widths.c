@@ -22,11 +22,14 @@ STEP3. sum of widths=allsubseq.sum(max)-allsubseq.sum(min)
 #define ISEND 1
 #define MODNUM 1000000007
 #define EXPLIMIT 20000
+#define MULLIMIT 2147483647 
+#define ADDLIMIT 4611686018427387903 
 class Solution {
 public:
     int sumSubseqWidths(vector<int>& A) {
         //STEP1. SORTING
         std::sort (A.begin(), A.end());
+        //I can replace the sort with counting sort
         //STEP2. for each element get (# of becoming maximun - # minimum)*val
         int index=0;
         long int sum=0;
