@@ -36,16 +36,22 @@ public:
             int countpos=modpower(2, index);
             int countneg=modpower(2, size-index-1);
             int count=countpos-countneg;
-            sum+=modmul(count,A[index]);
-            sum=sum%MODNUM;
+            long int sumA=sum+modmul(count,A[index]);
+
+            if(sumA>MODNUM)
+                sum=sumA-MODNUM;
+            else if(sum<-MODNUM)
+                sum=sumA+MODNUM;
+            else
+                sum=sumA;
             //debug message
-          //  cout<<"index:"<<index<<endl;
-           // cout<<"val:"<<A[index]<<endl;
-            //cout<<"pos:"<<countpos<<endl;
-            //cout<<"neg:"<<countneg<<endl;
+           // cout<<"index:"<<index<<endl;
+          ////  cout<<"val:"<<A[index]<<endl;
+           // cout<<"pos:"<<countpos<<endl;
+           // cout<<"neg:"<<countneg<<endl;
           //  cout<<"count:"<<count<<endl;
-           // cout<<"sumA:"<<sum<<endl;
-           // cout<<"sum:"<<sum<<endl;
+          //  cout<<"sumA:"<<sumA<<endl;
+          //  cout<<"sum:"<<sum<<endl;
         }
         return sum;
         //NOTE: use long int 
