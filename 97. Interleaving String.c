@@ -7,6 +7,7 @@
 //case3.1:pop s1 and s3,push to s1' stack and s3'stack, if this is the wrong path, recover to ***** and try case 3.2
 //case3.2:pop s2 and s3,push to s2' stack and s3'stack, if this is the wrong path, there is no solution
 
+//Note: case3: xxxxxA   xxxxxB  xxxxxA you should fork at the last x, instead of every x
 
 class Solution {
 public:
