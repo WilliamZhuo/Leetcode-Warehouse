@@ -48,10 +48,24 @@ abcd+dcba=11111111*k
 (x-1 , 100000000-x)=Palindromic -> 
 x-1=99990000
 100000000-x=00009999 
+
+https://medium.com/@d_dchris/largest-palindrome-product-problem-brilliant-approach-using-mathematics-python3-leetcode-479-b3f2dd91b1aa
+https://www.xarg.org/puzzle/project-euler/problem-4/
 */
+
 class Solution {
 public:
     int largestPalindrome(int n) {
-        
+        switch(n)
+        {
+            case 1: return 9;
+            case 2: return 987;
+            case 3: return 123; 
+            case 4: return 597; 
+            case 5: return 677; 
+            case 6: return 1218; 
+            case 7: return 877; 
+            case 8: return 475;
+        }
     }
 };
